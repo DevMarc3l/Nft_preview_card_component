@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+$primaryColor1: hsl(215, 52%, 70%);
+$primaryColor2: hsl(178, 100%, 50%);
+$colPallete1: hsl(217, 54%, 11%);
+$colPallete2: hsl(216, 50%, 16%);
+$colPallete3: hsl(215, 32%, 27%);
+$colPallete4: hsl(0, 0%, 100%);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 2rem;
+  background-color: $colPallete1;
+  color: $primaryColor1;
+  line-height: 1.5;
+  font-family: "Outfit", sans-serif;
+}
+
+.card {
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: $colPallete2;
+  max-width: 350px;
+
+  &__view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s opacity;
+    z-index: 3;
+    opacity: 0;
+  }
+
+  &,
+  &__image {
+    border-radius: 10px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: $primaryColor2;
+      opacity: 0;
+      z-index: 2;
+      transition: 1s opacity;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+
+      .card__view {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.nftDes,
+.time__left,
+.author__name {
+  font-weight: 300;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price,
+.time,
+.author {
+  display: flex;
+  align-items: center;
+
+  & p {
+    margin-left: 0.5rem;
+  }
+}
+
+.author {
+  padding-top: 0.8rem;
+  border-top: 0.5px solid $colPallete3;
+
+  &__img {
+    max-width: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    border: 1px solid $colPallete4;
+  }
+
+  &__name {
+    color: $colPallete4;
+    display: inline-block;
+  }
+}
+
+.nftName,
+.author__name {
+  transition: color 1s;
+}
+
+.nftName {
+  color: $colPallete4;
+}
+
+.nftName:hover,
+.author__name:hover {
+  color: $primaryColor2;
+  cursor: pointer;
+}
+
+.author__name:hover,
+.price__value {
+  color: $primaryColor2;
+}
+
+@media (min-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 2rem;
+  background-color: #0d192b;
+  color: #8bacda;
+  line-height: 1.5;
+  font-family: "Outfit", sans-serif;
+}
+
+.card {
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #14253d;
+  max-width: 350px;
+}
+
+.card__view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 1s opacity;
+  transition: 1s opacity;
+  z-index: 3;
+  opacity: 0;
+}
+
+.card, .card__image {
+  border-radius: 10px;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__image::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #00fff7;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition: 1s opacity;
+  transition: 1s opacity;
+}
+
+.card__image:hover::before {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__image:hover .card__view {
+  opacity: 1;
+}
+
+.card__img {
+  display: block;
+  width: 100%;
+}
+
+.nftDes,
+.time__left,
+.author__name {
+  font-weight: 300;
+}
+
+.stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.price,
+.time,
+.author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.price p,
+.time p,
+.author p {
+  margin-left: 0.5rem;
+}
+
+.author {
+  padding-top: 0.8rem;
+  border-top: 0.5px solid #2f415b;
+}
+
+.author__img {
+  max-width: 40px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  border: 1px solid white;
+}
+
+.author__name {
+  color: white;
+  display: inline-block;
+}
+
+.nftName,
+.author__name {
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+.nftName {
+  color: white;
+}
+
+.nftName:hover,
+.author__name:hover {
+  color: #00fff7;
+  cursor: pointer;
+}
+
+.author__name:hover,
+.price__value {
+  color: #00fff7;
+}
+
+@media (min-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+/*# sourceMappingURL=style.css.map */
